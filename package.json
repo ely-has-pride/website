@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "private": true,
+  "version": "4.27.3",
+  "description": "Ely Has Pride website.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elyhaspride/website.git"
+  },
+  "keywords": [
+    "jekyll",
+    "theme",
+    "minimal"
+  ],
+  "author": "Ely Has Pride",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elyhaspride/website/issues"
+  },
+  "homepage": "https://elyhaspride.github.io/website/",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.19.3"
+  }
+}

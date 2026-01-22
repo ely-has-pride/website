@@ -1,0 +1,68 @@
+# ============================================================
+# .github/workflows/build.yml (Build)
+# ============================================================
+
+# WHY-FILE: Build and deploy Jekyll site to GitHub Pages on pushes to main.
+# REQ: Repo Settings -> Pages -> Build and deployment -> Source:
+#      GitHub Actions
+
+name: build
+
+on:
+  push:
+    branches: [main] # WHY: Deploy on pushes to main branch.
+  workflow_dispatch: # WHY: Manual trigger - always available
+  repository_dispatch: {}
+
+permissions:
+  contents: read # REQ: Needed to checkout code.
+  pages: write # REQ: Needed to deploy to GitHub Pages.
+  id-token: write # REQ: Needed for GitHub Pages deployment.
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true # WHY: Prevent multiple simultaneous deploys.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # WHY: Linux environment matches most production deployments
+    timeout-minutes: 30 # WHY: Prevent hanging jobs. If over time, it is likely stuck.
+
+    steps:
+      # ============================================================
+      # ASSEMBLE: Get code and set up environment
+      # ============================================================
+
+      - name: A1) Checkout repository code
+        uses: actions/checkout@v6
+
+      - name: A2) Setup Pages
+        uses: actions/configure-pages@v5
+
+      # ============================================================
+      # BUILD: Get code and set up environment
+      # ============================================================
+
+      - name: B1) Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+
+      - name: B2) Upload artifact
+        uses: actions/upload-pages-artifact@v4
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # ============================================================
+      # DEPLOY: Deploy to GitHub Pages
+      # ============================================================
+
+      - name: D1) Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

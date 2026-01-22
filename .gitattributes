@@ -1,0 +1,50 @@
+# ============================================================
+# .gitattributes (Keep files consistent across operating systems)
+# ============================================================
+
+# REQ.UNIVERSAL: All professional GitHub project repositories MUST include .gitattributes.
+# WHY: Ensure consistent line endings, diff behavior, and file classification
+# across Windows, macOS, and Linux environments.
+# ALT: Repository may omit .gitattributes ONLY if equivalent normalization is
+# enforced reliably by tooling and CI (rare and fragile).
+# CUSTOM: Update file-type rules only when introducing new languages,
+# binary artifacts, or documentation formats.
+# NOTE: Rules are ordered by impact and generality, not alphabetically.
+# Git attributes are documented at https://git-scm.com/docs/gitattributes
+
+# === Core defaults (always apply) ===
+
+# WHY: Auto-detect text files and normalize line endings to avoid cross-platform drift.
+* text=auto
+
+# === Text files where LF really matters ===
+# CUSTOM: Do not add .md files here - web edits require different handling.
+
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.html  text eol=lf
+*.css   text eol=lf
+*.scss  text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+
+# === Binary files (never modify line endings) ===
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.svg   binary
+*.ico   binary
+*.pdf   binary
+
+# === GitHub Linguist classification ===
+
+# WHY: Exclude documentation and tests from GitHub repo language statistics.
+
+assets/js/main.min.js           linguist-vendored
+assets/js/vendor/**             linguist-vendored
+assets/js/plugins/**            linguist-vendored
+assets/js/lunr/**               linguist-vendored
+_sass/minimal-mistakes/vendor/** linguist-vendored
+assets/fonts/**                 linguist-vendored

@@ -1,0 +1,69 @@
+# ============================================================
+#  _config.yml (website configuration file)
+# ============================================================
+# This config file is for settings that affect the entire website.
+# After initial set up it rarely changes.
+# ============================================================
+
+# === Site settings ===
+locale: "en-US"
+title: "Ely Has Pride"
+description: "Ely, Minnesota: local support, resources, and community connections."
+url: "https://elyhaspride.github.io"
+baseurl: "" # keep "" for a custom domain or user/organization site (coming soon)
+repository: elyhaspride/website
+
+# show a small logo in the header
+logo: "/assets/images/logo.png"
+
+# Enable "Edit this page" links
+
+edit_page:
+  enabled: true
+  text: "Edit this page"
+
+# ============================================================
+# Theme settings (DO NOT EDIT))
+# ============================================================
+
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "air" # try: "air", "mint", "sunrise", "aqua"
+
+# Minimal Mistakes: default page layout
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      comments: false
+      share: false
+
+# Keep search and comments off for simplicity
+search: false
+
+# Make the site a website rather than a blog
+collections:
+  posts:
+    output: false
+
+# Include custom pages folder
+include:
+  - _pages
+
+# Turn off RSS Feed
+atom_feed:
+  hide: true
+
+# ============================================================
+# Build settings (DO NOT EDIT)
+# ============================================================
+
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache

@@ -1,0 +1,11 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "Resources"
+    url: /resources/
+  - title: "Local Support"
+    url: /local-support/
+  - title: "Get Involved"
+    url: /get-involved/
+  - title: "Contact"
+    url: /contact/
