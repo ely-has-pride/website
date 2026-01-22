@@ -9,9 +9,10 @@ permalink: /
 author_profile: false
 ---
 
-<img src="/assets/images/ely2.png"
+<img src="{{ '/assets/images/ely2.png' | relative_url }}"
      alt="Ely Has Pride logo"
      class="circle-logo" /><br>
+
 
 ## We're Glad You're Here
 
