@@ -10,7 +10,7 @@ locale: "en-US"
 title: "Ely Has Pride"
 description: "Ely, Minnesota: local support, resources, and community connections."
 url: "https://elyhaspride.github.io"
-baseurl: "" # keep "" for a custom domain or user/organization site (coming soon)
+baseurl: "/website"
 repository: elyhaspride/website
 
 # show a small logo in the header
