@@ -9,7 +9,7 @@ permalink: /
 author_profile: false
 ---
 
-<img src="{{ '/assets/images/ely2.png' | relative_url }}"
+<img src="{{ '/assets/images/logo_transparent.png' | relative_url }}"
      alt="Ely Has Pride logo"
      class="circle-logo" /><br>
 

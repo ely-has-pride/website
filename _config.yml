@@ -14,7 +14,7 @@ baseurl: "/website"
 repository: elyhaspride/website
 
 # show a small logo in the header
-logo: "/assets/images/logo.png"
+logo: "/assets/images/logo_transparent.png"
 
 # Enable "Edit this page" links
 
